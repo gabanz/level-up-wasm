@@ -1,1 +1,13 @@
+<script type="text/javascript">
+var Module = {
+    // Don't run main() at page load
+    noInitialRun: true,
+    // Run custom function on page load
+    onRuntimeInitialized: () => {
+        console.log("Launching main...");
+        Module.callMain();
+        console.log("Done");
+    }
+};
+</script>
 <script src="hello.js"></script>
