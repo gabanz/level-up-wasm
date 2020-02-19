@@ -1,1 +1,23 @@
+<script type="text/javascript">
+var Module = {
+    /* Pre-initialization */
+    preInit: [
+        () => console.log('Pre init 1'),
+        () => console.log('Pre init 2') // init 2 runs before init 1
+    ],
+    preRun: [
+        () => console.log('Pre run 1'),
+        () => console.log('Pre run 2') // init 2 runs before init 1
+    ],
+
+    /* Initialization */
+    // Run main on page load
+    noInitialRun: false,
+    // Use these arguments for the first call to main
+    arguments: ["Good evening", "Faiz"],
+
+    // When the module is ready
+    onRuntimeInitialized: () => console.log("Ready"),
+};
+</script>
 <script src="hello_custom.js"></script>

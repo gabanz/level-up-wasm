@@ -1,4 +1,5 @@
 <script type="text/javascript">
+var output = [];
 var Module = {
     // Don't run main() at page load
     noInitialRun: true,
@@ -7,7 +8,11 @@ var Module = {
         console.log("Launching main...");
         Module.callMain();
         console.log("Done");
-    }
+    },
+    // Custom function to process stdout: keep in memory
+    print: stdout => output.push(stdout),
+    // Custom function to process stderr: show in console as errors (in red)
+    printErr: stderr => console.error(stderr)
 };
 </script>
 <script src="hello.js"></script>
