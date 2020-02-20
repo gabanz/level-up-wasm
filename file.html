@@ -14,6 +14,42 @@ var Module = {
         console.log("File contents:");
         console.log(fileContents);
         console.log("Number of lines:", fileContents.split("\n").length);
+
+        // Create a folder
+        FS.mkdir("/data");
+
+        // Create a new file
+        FS.writeFile("/data/myFile.txt", "some contents");
+
+        // Another approach to creating files, with more options
+        // Instead of: FS.writeFile("/data/myFile2.txt", "abcdef");
+        FS.createDataFile(
+            "/data",        // folder within which we'll save the file
+            "myFile2.txt",  // file name
+            "abcdef",       // file contents (a string)
+            true,           // is this file readable?
+            true            // is this file writable?
+        );
+
+        // We can also rename a file
+        FS.rename("/data/myFile2.txt", "/data/myFile3.txt");
+
+        // Read the file back
+        FS.readFile("/data/myFile3.txt", { encoding: "utf8" });
+
+        // Delete the file
+        FS.unlink("/data/myFile3.txt");
+
+        // Do the equivalent of "ls" on the command line
+        FS.readdir("/");
+        FS.readdir("/data");
+
+        // Delete remaining file in /data
+        //FS.rmdir("/data");
+
+        // Get current working directory
+        FS.cwd();
+
     }
 };
 </script>
