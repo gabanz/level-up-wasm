@@ -1,0 +1,7 @@
+<script type="text/javascript">
+var Module = {
+    // Mount myFile.txt to root folder /
+    onRuntimeInitialized: () => FS.writeFile("/myFile.txt", "abc\ndef\nghi")
+};
+</script>
+<script src="file.js"></script>
